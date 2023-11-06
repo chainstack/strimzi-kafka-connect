@@ -8,7 +8,7 @@ ENV KAFKA_CONNECT_PLUGIN_PATH=/opt/kafka/plugins
 
 # Deploy PostgreSQL JDBC Driver
 RUN mkdir -p $KAFKA_CONNECT_PLUGIN_PATH/mysql && cd $KAFKA_CONNECT_PLUGIN_PATH/mysql && \
-    curl -sO https://repo1.maven.org/maven2/io/debezium/debezium-connector-mysql/${DEBEZIUM_CONNECTOR_VERSION}/debezium-connector-mysql-${DEBEZIUM_CONNECTOR_VERSION}-plugin.tar.gz | tar xz
+    curl -sfSL https://repo1.maven.org/maven2/io/debezium/debezium-connector-mysql/${DEBEZIUM_CONNECTOR_VERSION}/debezium-connector-mysql-${DEBEZIUM_CONNECTOR_VERSION}-plugin.tar.gz | tar xz
 
 RUN mkdir -p $KAFKA_CONNECT_PLUGIN_PATH/jdbc && cd $KAFKA_CONNECT_PLUGIN_PATH/jdbc && \
     curl -sO https://packages.confluent.io/maven/io/confluent/kafka-connect-jdbc/$KAFKA_JDBC_VERSION/kafka-connect-jdbc-$KAFKA_JDBC_VERSION.jar &&  \
